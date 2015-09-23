@@ -60,6 +60,8 @@
     <Compile Include="Refactoring\AllowMembersOrderingCodeFixProvider.Base.cs" />
     <Compile Include="Refactoring\ChangeAsToCastAnalyzer.cs" />
     <Compile Include="Refactoring\ChangeAsToCastCodeFixProvider.cs" />
+    <Compile Include="Refactoring\ConvertAbstractClassToInterfaceAnalyzer.cs" />
+    <Compile Include="Refactoring\ConvertAbstractToInterfaceProvider.cs" />
     <Compile Include="Refactoring\MakeMethodNonAsyncCodeFixProvider.cs" />
     <Compile Include="Refactoring\MergeNestedIfAnalyzer.cs" />
     <Compile Include="Refactoring\MergeNestedIfCodeFixProvider.cs" />
