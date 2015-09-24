@@ -5,6 +5,9 @@ using Microsoft.CodeAnalysis;
 using System.Composition;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Linq;
+using Microsoft.CodeAnalysis.CodeActions;
+using CodeCracker.Properties;
+using Microsoft.CodeAnalysis.CSharp;
 
 namespace CodeCracker.CSharp.Refactoring
 {
@@ -16,6 +19,8 @@ namespace CodeCracker.CSharp.Refactoring
 
         public override FixAllProvider GetFixAllProvider() => WellKnownFixAllProviders.BatchFixer;
 
+        private static SyntaxToken ClassAbstractSyntaxToken = SyntaxFactory.Token(SyntaxKind.ClassDeclaration);
+
         public async sealed override Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             var diagnostic = context.Diagnostics.First();
@@ -24,9 +29,9 @@ namespace CodeCracker.CSharp.Refactoring
             var cancellationToken = context.CancellationToken;
             var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
             var classDeclaration = root.FindToken(diagnosticSpan.Start).Parent.AncestorsAndSelf().OfType<ClassDeclarationSyntax>().FirstOrDefault();
-
+            context.RegisterCodeFix(CodeAction.Create(Resources.ConvertAbstractToInterface_Title, c => Task.FromResult(context.Document), nameof(ConvertAbstractToInterfaceProvider)), diagnostic);
+            
             //if (!await CanFixAsync(document, classDeclaration, cancellationToken)) return;
-            //context.RegisterCodeFix(CodeAction.Create(Resources.SealMemberCodeFixProvider_Title, c => Task.FromResult(MakeSealed(context.Document, root, classDeclaration)), nameof(SealMemberCodeFixProvider)), diagnostic);
         }
     }
   

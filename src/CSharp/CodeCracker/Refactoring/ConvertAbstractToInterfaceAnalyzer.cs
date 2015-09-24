@@ -35,7 +35,7 @@ namespace CodeCracker.CSharp.Refactoring
             var classDeclaration = (ClassDeclarationSyntax)context.Node;
             //if (!classDeclaration.BaseList?.Types.Any() ?? true) return;
             //if (classDeclaration.Modifiers.Any(m => m.IsKind(SyntaxKind.AbstractKeyword))) return;
-            var members = classDeclaration.Members;
+            //var members = classDeclaration.Members;
             var diagnostic = Diagnostic.Create(Rule, classDeclaration.Identifier.GetLocation(), classDeclaration.Identifier.ValueText);
             context.ReportDiagnostic(diagnostic);
         }

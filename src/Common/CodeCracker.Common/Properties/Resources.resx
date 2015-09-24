@@ -237,4 +237,7 @@
   <data name="ReturnTaskInsteadOfAwaitCodeFixProvider_Title" xml:space="preserve">
     <value>Remove 'async' and return directly.</value>
   </data>
+  <data name="ConvertAbstractToInterface_Title" xml:space="preserve">
+    <value>Convert Abstract Class to a Interface</value>
+  </data>
 </root>

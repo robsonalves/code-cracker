@@ -134,6 +134,15 @@ namespace CodeCracker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Convert Abstract Class to a Interface.
+        /// </summary>
+        public static string ConvertAbstractToInterface_Title {
+            get {
+                return ResourceManager.GetString("ConvertAbstractToInterface_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change field type &apos;{0}&apos; accessibility to be as accessible as field &apos;{1}&apos;.
         /// </summary>
         public static string InconsistentAccessibilityInFieldType_Title {
